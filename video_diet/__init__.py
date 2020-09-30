@@ -25,9 +25,14 @@ COUNTER_FMT = u'{desc}{desc_pad}{count:.1f} {unit}{unit_pad}' + \
 CONVERT_COMMAND_10Bits = 'ffmpeg -progress pipe:1 -i "{source}" -map 0 -map -v -map V -c:v libx265 -x265-params crf=26:profile=main10 -c:a aac -y "{dest}"'
 CONVERT_COMMAND = 'ffmpeg -progress pipe:1 -i "{source}" -map 0 -map -v -map V -c:v libx265 -crf 26 -c:a aac -y "{dest}"'
 
+setattr(sys, 'frozen', True)
+setattr(sys, '_MEIPASS', sys.executable)
+# pending add
+os.environ['WEXPECT_EXECUTABLE']=''
+
 def convert_file(source: str, dest: str):
     stream = ffmpeg.input(source)
-    stream = ffmpeg.output(stream, dest, vcodec='libx265', crf='28')y
+    stream = ffmpeg.output(stream, dest, vcodec='libx265', crf='28')
     ffmpeg.run(stream)
 
 def convert_video_progress_bar(source: str, dest: str, manager=None):
