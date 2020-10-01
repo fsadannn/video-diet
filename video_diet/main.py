@@ -36,6 +36,9 @@ def folder(path: Path = typer.Argument(
     dir_okay=True,
     readable=True,
     resolve_path=True
+),
+force: bool = typer.Option(
+    default=False,
 )):
     """
     Convert all videos and audios in a folder
@@ -68,7 +71,7 @@ def folder(path: Path = typer.Argument(
 
     for video in videos:
         typer.secho(f'Processing: {video}')
-        if get_codec(str(video)) != 'hevc':
+        if get_codec(str(video)) != 'hevc' or force:
             new_path = convertion_path(video, False)
 
             if new_path.exists():
