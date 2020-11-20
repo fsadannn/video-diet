@@ -25,8 +25,8 @@ COUNTER_FMT = u'{desc}{desc_pad}{count:.1f} {unit}{unit_pad}' + \
               u'[{elapsed}, {rate:.2f}{unit_pad}{unit}/s]{fill}'
 
 # https://www.ramugedia.com/how-encode-decode-hevc-h-265-by-intel-quick-sync-video-hw--qsv-
-CONVERT_COMMAND_10Bits = 'ffmpeg -hwaccel qsv -progress pipe:1 -i "{source}" -map 0 -map -v -map V -c:v hevc_qsv -load_plugin hevc_hw -profile main10 -global_quality 26 -c:a aac -y "{dest}"'
-CONVERT_COMMAND = 'ffmpeg -hwaccel qsv -progress pipe:1 -i "{source}" -map 0 -map -v -map V -c:v hevc_qsv -load_plugin hevc_hw -global_quality 26 -c:a aac -y "{dest}"'
+CONVERT_COMMAND_10Bits = 'ffmpeg -hwaccel qsv -progress pipe:1 -i "{source}" -map 0 -map -v -map V -c:v hevc_qsv -load_plugin hevc_hw -profile main10 -global_quality 24 -c:a aac -y "{dest}"'
+CONVERT_COMMAND = 'ffmpeg -hwaccel qsv -progress pipe:1 -i "{source}" -map 0 -map -v -map V -c:v hevc_qsv -load_plugin hevc_hw -global_quality 24 -c:a aac -y "{dest}"'
 
 def convert_file(source: str, dest: str):
     stream = ffmpeg.input(source)

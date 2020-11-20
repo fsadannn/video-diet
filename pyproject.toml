@@ -23,6 +23,7 @@ ansicon = {version ="^1.89.0", markers = "sys_platform == 'win32' or platform_sy
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0"
+pyinstaller = "^4.0"
 
 [build-system]
 requires = ["poetry>=0.12"]

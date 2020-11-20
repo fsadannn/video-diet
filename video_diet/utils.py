@@ -63,7 +63,7 @@ def convertion_path(path: Path, audio: bool ):
 
     if not audio:
 
-        if path.suffix.lower() not in ['.mkv', '.mp4']:
+        #if path.suffix.lower() not in ['.mkv', '.mp4']:
 
             return path.parent / (path.stem + '.mkv')
 
